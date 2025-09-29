@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Звіти з лабораторних робіт</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+            position: relative;
+        }
+        .container {
+            width: 80%;
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .nav-buttons button {
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .nav-buttons button:hover {
+            background-color: #ddd;
+        }
+        .content {
+            display: flex;
+        }
+        .menu {
+            width: 30%;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        .menu button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #e7e7e7;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            text-align: left;
+        }
+        .menu button:hover {
+            background-color: #ddd;
+        }
+        .output {
+            width: 70%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+        /* Стиль для фотографії */
+        .photo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 100px;
+            height: 100px;
+            border-radius: 10%;
+            overflow: hidden;
+        }
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="photo">
+            <img src="./images/photo_2022-05-09_13-34-09.jpg" alt="Фотографія">
+        </div>
+
+        <h1>ЗВІТИ З ЛАБОРАТОРНИХ РОБІТ</h1>
+        <h2>З ДИСЦИПЛІНИ "ІНТЕРНЕТ-ТЕХНОЛОГІЇ ТА ПРОЕКТУВАННЯ WEB-ЗАСТОСУВАНЬ"<br>Студента групи ІС-33 Доможилкіна Олега Сергійовича</h2>
+
+        <div class="nav-buttons">
+            <button onclick="showLab1()">Лабораторна робота №1</button>
+            <button onclick="showLab2()">Лабораторна робота №2</button>
+            <button onclick="showLab3()"> Лабораторна робота №3</button>
+            <button onclick="showLab4()">Лабораторна робота №4</button>
+            <button onclick="showLab5()">Лабораторна робота №5</button>
+            <button onclick="showLab6()">Лабораторна робота №6</button>
+            <button onclick="showLab7()">Лабораторна робота №7</button>
+            <button>Лабораторна робота №8</button>
+            <button>Лабораторна робота №9</button>
+        </div>
+
+        <div class="content">
+            <div class="menu" id="menu">
+                <!-- Початкове меню для ЛР №1 -->
+                <button onclick="toggleDescription()">Опис предметного середовища</button>
+                <button onclick="showTopicDetails()">Тема Мета Місце розташування ЛР №1</button>
+                <button onclick="showTableCode()">HTML-код таблиць</button>
+                <button onclick="showListCode()">HTML-код списку</button>
+                <button onclick="showImage()">HTML-код зображення</button>
+                <button onclick="showConclusion()">Висновки</button>
+                
+            </div>
+            <div class="output" id="output">
+                <p>Місце виведення інформації</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Показати меню для ЛР №1
+        function showLab1() {
+            var menu = document.getElementById("menu");
+            menu.innerHTML = `
+                <button onclick="toggleDescription()">Опис предметного середовища</button>
+                <button onclick="showTopicDetails()">Тема Мета Місце розташування ЛР №1</button>
+                <button onclick="showTableCode()">HTML-код таблиць</button>
+                <button onclick="showListCode()">HTML-код списку</button>
+                <button onclick="showImage()">HTML-код зображення</button>
+                <button onclick="showConclusion()">Висновки</button>
+            `;
+        }
+
+        // Показати меню для ЛР №2
+        function showLab2() {
+            var menu = document.getElementById("menu");
+            menu.innerHTML = `
+                <button onclick="showDetails()">Тема, мета ЛР №2 Місце розташування сайту, звіту</button>
+                <button>Способи підключення стилів</button>
+                <button>СЕЛЕКТОРИ</button>
+                <button onclick="showTagSelector()">Селектори тегу</button>
+                <button onclick="showClassSelector()">Селектори класу</button>
+                <button onclick = "showIDSelector()">Селектори ідентифікаторів</button>
+                <button onclick = "showOtherSelector()">Інші селектори</button>
+                <button onclick = "showCSS()">CSS: Шрифти, текст, таблиці, фон, контур</button>
+                <button onclick = "showConclusion2()">ВИСНОВКИ до ЛР №2</button>
+            `;
+        }
+
+        // Показати меню для ЛР №3
+        function showLab3() {
+            var menu = document.getElementById("menu");
+            menu.innerHTML = `
+                <button onclick="showDetails3()">Тема, мета ЛР №3 Місце розташування сайту, звіту</button>
+                <button onclick = "Task1()">Завдання №1 Зовнішній вигляд макету, код макету </button>
+                <button>ЗАВДАННЯ №2</button>
+                <button onclick="showFixedTable()">Фіксована таблична верстка</button>
+                <button onclick="showGumTable()">Гумова таблична верстка</button>
+                <button onclick = "showFixedBlock()">Фіксована блокова верстка</button>
+                <button onclick = "showGumBlock()">Гумова блокова верстка</button>
+                <button>ЗАВДАННЯ №3</button>
+                <button onclick = "showScreenFlexbox()">Cкріншот сторінки (Flexbox)</button>
+                <button onclick = "shoHTMLCodeFlexbox()">Html-код (Flexbox)</button>
+                <button onclick = "showCSSCodeFlexbox()">CSS-код (Flexbox)</button>
+                <button onclick = "showConclusion3()">ВИСНОВКИ до ЛР №3</button>
+            `;
+        }
+
+        function showLab4() {
+            var menu = document.getElementById("menu");
+            menu.innerHTML = `
+                <button onclick="showDetails4()">Тема, мета ЛР №3 Місце розташування сайту, звіту</button>
+                <button onclick = "DesktopScreen()">Скріншот Десктопної версії </button>
+                <button onclick = "TabletScreen()">Скріншот Планшетної версії </button>
+                <button onclick = "MobileScreen()">Скріншот Мобільної версії </button>
+                <button onclick = "showConclusion4()">ВИСНОВКИ до ЛР №4</button>
+            `;
+        }
+
+        function showLab5() {
+            var menu = document.getElementById("menu");
+            menu.innerHTML = `
+                <button onclick="showDetails5()">Тема, мета ЛР №5 Місце розташування сайту, звіту</button>
+                <button onclick = "Task1()">Завдання 1 </button>
+                <button onclick = "Task2()">Завдання 2 </button>
+                <button onclick = "Task3()">Завдання 3 </button>
+                <button onclick = "Task4()">Завдання 4 </button>
+                <button onclick = "Task5()">Завдання 5 </button>
+                <button onclick = "showConclusion5()">ВИСНОВКИ до ЛР №5</button>
+            `;
+        }
+
+        function showLab6() {
+            var menu = document.getElementById("menu");
+            menu.innerHTML = `
+                <button onclick="showDetails6()">Тема, мета ЛР №6 Місце розташування сайту, звіту</button>
+                <button onclick = "Taask1()">Завдання 1 </button>
+                <button onclick = "Taask3()">Завдання 3 </button>
+                <button onclick = "Taask5()">Завдання 5 </button>
+                <button onclick = "Taask7()">Завдання 7 </button>
+                <button onclick = "Taask9()">Завдання 9 </button>
+                <button onclick = "Taask10()">Завдання 10 </button>
+                <button onclick = "showConclusion6()">ВИСНОВКИ до ЛР №6</button>
+            `;
+        }
+
+        function showLab7() {
+            var menu = document.getElementById("menu");
+            menu.innerHTML = `
+                <button onclick="showDetails7()">Тема, мета ЛР №7 Місце розташування сайту, звіту</button>
+                <button onclick = "Task7_1()">Завдання 1 </button>
+                <button onclick = "Task7_3()">Завдання 3 </button>
+                <button onclick = "Task7_5()">Завдання 5 </button>
+                <button onclick = "Task7_7()">Завдання 7 </button>
+                <button onclick = "Task7_8()">Завдання 8 </button>
+                <button onclick = "Task7_9()">Завдання 9 </button>
+                <button onclick = "Task7_10()">Завдання 10 </button>
+                <button onclick = "showConclusion7()">ВИСНОВКИ до ЛР №7</button>
+            `;
+        }
+
+        function toggleDescription() {
+            var outputDiv = document.getElementById("output");
+            var currentContent = outputDiv.innerHTML.trim();
+            var description = `
+                <p><strong>Опис предметного середовища проєкту</strong></p> 
+
+        <p><strong>Тема:</strong><br> 
+
+        Сайт присвячений подорожам до Японії. Він пропонує інформацію про туристичні маршрути, визначні місця, місцеву культуру, традиції, їжу, а також розрахунок бюджету подорожі. Сайт спрямований на аудиторію, яка планує або цікавиться поїздками до Японії, надаючи їй всю необхідну інформацію для організації подорожі.</p> 
+
+ 
+
+        <p><strong>Мета:</strong><br> 
+
+        Основна мета сайту – надати корисну та детальну інформацію про подорожі до Японії. Це включає:</p> 
+
+        <ul> 
+
+            <li>Ознайомлення користувачів з культурними особливостями країни.</li> 
+
+            <li>Рекомендації щодо туристичних маршрутів та визначних місць.</li> 
+
+            <li>Надання інформації про вартість подорожі за допомогою калькулятора бюджету.</li> 
+
+            <li>Інформування про місцеву кухню, звичаї, культурні події та інші цікавинки.</li> 
+
+            <li>Залучення користувачів до взаємодії через соціальні мережі та канали зв'язку.</li> 
+
+        </ul> 
+
+ 
+
+        <p><strong>Опис бізнес-логіки:</strong></p> 
+
+        <ul> 
+
+            <li><strong>Навігація:</strong> Сайт має зручну навігацію, що дозволяє користувачам легко знайти потрібну інформацію. Головне меню включає розділи: Природа, Їжа, Розваги, Культура, Маршрути.</li> 
+
+            <li><strong>Головна сторінка:</strong> Відображає найпопулярніші статті та функції сайту, такі як калькулятор бюджету, статті про маршрути, відповіді на поширені питання.</li> 
+
+            <li><strong>Калькулятор бюджету:</strong> Інтерактивний інструмент, який дозволяє користувачам розрахувати приблизну вартість подорожі, враховуючи переліт, проживання, харчування, екскурсії та інші витрати.</li> 
+
+            <li><strong>Категорії контенту:</strong> 
+
+                <ul> 
+
+                    <li><strong>Природа:</strong> Інформація про національні парки, природні визначні місця.</li> 
+
+                    <li><strong>Їжа:</strong> Опис традиційних японських страв, ресторанів, кафе.</li> 
+
+                    <li><strong>Розваги:</strong> Рекомендації щодо відвідування тематичних парків, фестивалів, нічного життя.</li> 
+
+                    <li><strong>Культура:</strong> Статті про культурні події, звичаї, традиції Японії.</li> 
+
+                    <li><strong>Маршрути:</strong> Готові маршрути для подорожей по країні з описом основних точок інтересу.</li> 
+
+                </ul> 
+
+            </li> 
+            <li><strong>Система комунікації:</strong> Контактна форма та посилання на соціальні мережі для зворотного зв'язку, підписки та обговорень.</li> 
+
+        </ul> 
+
+ 
+
+        <p><strong>Сценарій:</strong></p> 
+
+        <p><strong>Сценарій 1: Ознайомлення з сайтом</strong></p> 
+
+        <ol> 
+
+            <li>Користувач заходить на сайт і переглядає головну сторінку.</li> 
+
+            <li>Вибирає один із розділів меню, наприклад, "Природа".</li> 
+
+            <li>Читає статті про національні парки та визначні місця, планує відвідування.</li> 
+
+        </ol> 
+
+ 
+
+        <p><strong>Сценарій 2: Планування подорожі</strong></p> 
+
+        <ol> 
+
+            <li>Користувач заходить на сайт з метою розрахувати бюджет подорожі.</li> 
+
+            <li>Використовує калькулятор бюджету, вводить параметри (кількість днів, місто, вид транспорту).</li> 
+
+            <li>Отримує приблизну вартість поїздки і зберігає інформацію для подальшого використання.</li> 
+
+        </ol> 
+
+ 
+
+        <p><strong>Сценарій 3: Пошук відповіді на питання</strong></p> 
+
+        <ol> 
+
+            <li>Користувач має конкретне питання щодо поїздки (наприклад, як замовити квитки на поїзд).</li> 
+
+            <li>Переходить до розділу "Відповіді на питання про Японію".</li> 
+
+            <li>Знаходить потрібну інформацію, переглядає рекомендації.</li> 
+
+        </ol> 
+
+ 
+
+        <p><strong>Сценарій 4: Підписка на оновлення</strong></p> 
+
+        <ol> 
+
+            <li>Користувач цікавиться новинами про Японію.</li> 
+
+            <li>Переглядає контакти, натискає на посилання на Telegram-канал.</li> 
+
+            <li>Підписується на канал для отримання новин та оновлень.</li> 
+
+        </ol> 
+            `;
+            if (currentContent === '<p>Місце виведення інформації</p>' || currentContent === '') {
+                outputDiv.innerHTML = description;
+            } else {
+                outputDiv.innerHTML = '<p>Місце виведення інформації</p>';
+            }
+        }
+
+        function showTopicDetails() {
+            var outputDiv = document.getElementById("output");
+            var topicDetails = `
+                <p><strong>Тема:</strong> СТРУКТУРА HTML-ДОКУМЕНТА. ВИБІР ПРЕДМЕТНОЇ ГАЛУЗІ.<br> 
+
+                РОБОТА З ПОСИЛАННЯМИ, ТАБЛИЦЯМИ, ЗОБРАЖЕННЯМИ, СПИСКАМИ в HTML-ДОКУМЕНТІ.<br><br> 
+
+                <strong>Мета:</strong> придбати практичні навички роботи з HTML-документом, таблицями, зображеннями, посиланнями, списками, формами.<br> 
+
+                Створити шаблон звітного HTML-документу для відображення результатів роботи всіх лабораторних робіт.<br><br> 
+
+                <strong>Місце розташування:</strong> <a href="https://github.com/risewing/IC-33_appWEB-DomozhilkinOleg-FIOT-2025" target="_blank">посилання на репозиторій веб застосунка</a><br> 
+
+                <a href="https://risewing.github.io/IC-33_appWEB-DomozhilkinOleg-FIOT-2025/" target="_blank">посилання на живу сторінку веб-застосунка</a><br> 
+
+                <a href="https://github.com/risewing/Domozhilkin_Oleg_IndependentWork" target="_blank">посилання на репозиторій самостійної роботи</a><br> 
+
+                <a href="https://risewing.github.io/Domozhilkin_Oleg_IndependentWork/" target="_blank">посилання на живу сторінку самостійної роботи</a> 
+            `;
+            outputDiv.innerHTML = topicDetails;
+        }
+
+        function showTableCode() {
+            var outputDiv = document.getElementById("output");
+            var tableCode = `
+               <img src="./images/photo_2025-09-29_17-54-23.jpg" alt="Placeholder Image" width="1000">
+               <img src="./images/photo_2025-09-29_17-52-14.jpg" alt="Placeholder Image" width="1000">
+            `;
+            outputDiv.innerHTML = tableCode;
+        }
+
+        function showListCode() {
+            var outputDiv = document.getElementById("output");
+            var listCode = `
+            <img src="./images/photo_2025-09-29_17-55-37.jpg" alt="Placeholder Image" width="1000">
+               <img src="./images/photo_2025-09-29_17-56-12.jpg" alt="Placeholder Image" width="1000">
+            `;
+            outputDiv.innerHTML = listCode;
+        }
+
+        function showImage() {
+            var outputDiv = document.getElementById("output");
+            var imageHtml = `
+                <pre><code>&lt;img src="image.jpg" alt="Опис зображення" width="500" height="300"&gt;</code></pre> 
+            `;
+            outputDiv.innerHTML = imageHtml;
+        }
+
+
+        function showConclusion() {
+            var outputDiv = document.getElementById("output");
+            var conclusion = `
+                <p><strong>Висновок:</strong> Під час виконання ЛР №1 я набув практичних навичок зі створення структури HTML-документу та роботи з таблицями, списками, зображеннями.</p>
+            `;
+            outputDiv.innerHTML = conclusion;
+        }
+
+
+function showDetails() {
+            var outputDiv = document.getElementById("output");
+            outputDiv.innerHTML = `
+        <p><strong>Тема:</strong> КАСКАДНІ ТАБЛИЦІ СТИЛІВ. СЕЛЕКТОРИ .ІДЕНТИФІКАТОРИ. СТИЛЬОВЕ ОФОРМЛЕННЯ ТЕКСТОВИХ ЕЛЕМЕНТІВ В HTML-ДОКУМЕНТАХ.</p>
+        <p><strong>Мета:</strong> придбати практичні навички роботи з селекторами, ідентифікаторами, списками, різноманітними властивостями кольору і фону, зовнішними та внутрішними відступами, плаваючими елементами, оформленням текстових елементів.</p>
+        <p><strong>Місце розташування:</strong></p>
+        <ul>
+            <li><a href="https://github.com/risewing/lab2">Посилання на репозиторій лабораторної роботи №2</a></li>
+            <li><a href="https://risewing.github.io/lab2/">Посилання на живу сторінку лабораторної роботи №2</a></li>
+            <li><a href="https://github.com/risewing/ind2">Посилання на репозиторій самостійної роботи №2</a></li>
+            <li><a href="https://risewing.github.io/ind2/">Посилання на живу сторінку самостійної роботи №2</a></li>
+            <li><a href="https://github.com/risewing/Domozhilkin_Zvit">Посилання на репозиторій звітного HTML документу</a></li>
+        </ul>
+    `;
+    
+}
+
+function showTagSelector() {
+    var outputDiv = document.getElementById("output");
+    outputDiv.innerHTML = `
+                <img src="./images/photo_2024-09-30_23-43-33.jpg" alt="Placeholder Image" width="700">
+                <p>селектор тегу</p>
+            `;
+}
+
+
+function showClassSelector() {
+    var outputDiv = document.getElementById("output");
+    outputDiv.innerHTML = `
+                <img src="./images/photo_2024-09-30_23-45-27.jpg" alt="Placeholder Image" width="300">
+                <img src="./images/image.png" alt="Placeholder Image" width="300">
+            `;
+}
+
+function showIDSelector() {
+    var outputDiv = document.getElementById("output");
+    outputDiv.innerHTML = `
+                <img src="./images/photo_2024-09-30_23-46-30.jpg" alt="Placeholder Image" width="700">
+                <img src="./images/photo_2024-09-30_23-46-51.jpg" alt="Placeholder Image" width="700">
+                <p>Cелектори ідентифікаторів.</p>
+            `;
+}
+function showOtherSelector() {
+    var outputDiv = document.getElementById("output");
+    outputDiv.innerHTML = `
+                <img src="./images/photo_2024-09-30_23-48-12.jpg" alt="Placeholder Image" width="700">
+                <p> селектори нащадків.</p>
+
+
+                <img src="./images/photo_2024-09-30_23-49-28.jpg" alt="Placeholder Image" width="700">
+                <img src="./images/photo_2024-09-30_23-49-51.jpg" alt="Placeholder Image" width="700">
+                <p> селектор групування.</p>
+            `;
+}
+
+function showCSS() {
+    var outputDiv = document.getElementById("output");
+    outputDiv.innerHTML = `
+                <p> шрифти.</p> 
+                <img src="./images/photo_2024-09-30_23-50-47.jpg" alt="шрифти" width="700">
+                
+                <p> контури.</p> 
+                <img src="./images/photo_2024-09-30_23-52-47.jpg" alt="Placeholder Image" width="700">
+
+                <p> фон.</p> 
+                <img src="./images/photo_2024-09-30_23-53-23.jpg" alt="Placeholder Image" width="700">
+                
+                <p> колір тексту.</p>
+                <img src="./images/photo_2024-09-30_23-53-52.jpg" alt="Placeholder Image" width="700">
+
+                <p> CSS-властивості для таблиць.</p>
+                <img src="./images/photo_2024-09-30_23-54-49.jpg" alt="Placeholder Image" width="700">
+
+                <p> CSS просунутий.</p>
+                <img src="./images/photo_2024-10-01_01-01-15.jpg" alt="Placeholder Image" width="700">
+                <img src="./images/photo_2024-10-01_01-02-39.jpg" alt="Placeholder Image" width="700">
+               
+            `;
+}
+function showConclusion2() {
+            var outputDiv = document.getElementById("output");
+            var conclusion = `
+                <p><strong>Висновок:</strong> Під час виконання ЛР №2 я придбав практичні навички роботи  з селекторами, ідентифікаторами, списками,  різноманітними властивостями кольору і фону,  зовнішними та внутрішними  відступами,  плаваючими елементами, оформленням текстових елементів</p>
+            `;
+            outputDiv.innerHTML = conclusion;
+        }
+        function showDetails3() {
+            var outputDiv = document.getElementById("output");
+            outputDiv.innerHTML = `
+        <p><strong>Тема:</strong> ВЕРСТКА HTML-ДОКУМЕНТУ. БЛОКОВА ВЕРСТКА.  ВЕРСТКА ЗАСОБАМИ CSS та FLEXBOX </p>
+        <p><strong>Мета:</strong> ⎯  придбати практичні навички роботи  верстки сторінок засобами CSS, верстки на основі плаваючих елементів, з’ясувати переваги та недоліки типів макетів веб-сторінок ⎯  придбати практичні навички роботи  верстки сторінок засобами CSS та FLEXBOX</p>
+        <p><strong>Місце розташування:</strong></p>
+        <ul>
+            <li><a href="https://github.com/risewing/lab2">Посилання на репозиторій лабораторної роботи №3</a></li>
+            <li><a href="https://risewing.github.io/lab2/">Посилання на живу сторінку лабораторної роботи №3</a></li>
+            
+            <li><a href="https://github.com/risewing/Domozhilkin_Zvit">Посилання на репозиторій звітного HTML документу</a></li>
+        </ul>
+    `;
+}
+function Task1() {
+    var outputDiv = document.getElementById("output");
+    outputDiv.innerHTML = `
+                <img src="./images/mainpage.png" alt="Placeholder Image" width="700">
+                <img src="./images/Снимок экрана 2024-10-10 161811.png" alt="Placeholder Image" width="700">
+            `;
+}
+
+function showFixedTable() {
+        var outputDiv = document.getElementById("output");
+        outputDiv.innerHTML = `
+        <a href="file:///C:/C++/Git/Domozhilkin_Zvit/lab3task2/fixedTable.html">фіксована таблична верстка</a>
+                `
+            ;
+        }
+        function showGumTable() {
+            var outputDiv = document.getElementById("output");
+            outputDiv.innerHTML = `
+            <a href="file:///C:/C++/Git/Domozhilkin_Zvit/lab3task2/gumTable.html">гумова таблична верстка</a>
+                    `
+                ;
+            }
+    function showFixedBlock() {
+                var outputDiv = document.getElementById("output");
+                outputDiv.innerHTML = `
+                <a href="file:///C:/C++/Git/Domozhilkin_Zvit/lab3task2/fixedBlock.html">фіксована блокова верстка</a>
+                        `
+                    ;
+                }
+    function showGumBlock() {
+            var outputDiv = document.getElementById("output");
+            outputDiv.innerHTML = `
+            <a href="file:///C:/C++/Git/Domozhilkin_Zvit/lab3task2/gumBlock.html">гумова блокова верстка</a>
+                    `
+                ;
+            }
+            function showScreenFlexbox() {
+                var outputDiv = document.getElementById("output");
+                outputDiv.innerHTML = `
+                
+                
+                <img src="./images/web1.jpg" alt="Placeholder Image" width="700">
+                <a href="file:///C:/C++/Git/Domozhilkin_Zvit/Task3.html">веб-сторінка</a>
+                        `
+                    ;
+                }
+        function shoHTMLCodeFlexbox() {
+                    var outputDiv = document.getElementById("output");
+                    outputDiv.innerHTML = `
+                    
+                    
+                    <img src="./images/html1.jpg" alt="Placeholder Image" width="700">
+                    <img src="./images/html2.jpg" alt="Placeholder Image" width="700">
+                   
+                            `
+                        ;
+                    }
+
+                    function showCSSCodeFlexbox() {
+                        var outputDiv = document.getElementById("output");
+                        outputDiv.innerHTML = `
+                        
+                        
+                        <img src="./images/css1.jpg" alt="Placeholder Image" width="700">
+                        <img src="./images/csss2.jpg" alt="Placeholder Image" width="700">
+                       <img src="./images/css3.jpg" alt="Placeholder Image" width="700">
+                                `
+                            ;
+                        }
+         function showConclusion3() {
+                            var outputDiv = document.getElementById("output");
+                            var conclusion = `
+                                <p><strong>Висновок:</strong> Під час виконання ЛР №3 я придбав практичні навички роботи  верстки сторінок засобами CSS, верстки на основі плаваючих елементів, з’ясував переваги та недоліки типів макетів веб-сторінок, придбав практичні навички роботи  верстки сторінок засобами CSS та FLEXBOX.    </p>
+                                <p> <b>Веб-додатки на основі таблиць: </b></p>
+                            <ul>
+                          <li> Переваги: простота, сумісність, легке вирівнювання.</li>
+                            <li> Недоліки: погана адаптивність, складність підтримки, несемантична структура.</li>
+
+                                <p><b> Веб-додатки на основі блоків:</b></p>
+
+                          <li>Переваги: гнучкість, адаптивність, сучасний дизайн.</li>
+                          <li>Недоліки: вимагають більше знань та часу на налаштування.</li>
+                          </ul>
+                                `
+                            ;
+                            outputDiv.innerHTML = conclusion;
+                        }
+
+    function showDetails4() {
+    var outputDiv = document.getElementById("output");
+    outputDiv.innerHTML = `
+<p><strong>Тема:</strong>  АДАПТИВНА ВЕРСТКА. МЕДІА-ЗАПИТИ. МЕТАТЕГ VIEWPORT. СТРАТЕГІЯ MOBILE FIRST.</p>
+<p><strong>Мета:</strong> Адаптивна верстка. Медіа-запити. Медіа-типи. Медіа-функції.Метатег viewport. Інструменти розробника. Стратегія Mobile First. </p>
+<p><strong>Місце розташування:</strong></p>
+<ul>
+    <li>Посилання на репозиторій лабораторної роботи №4: 
+        <a href="https://github.com/risewing/lab2">https://github.com/risewing/lab2</a>
+    </li>
+    <li>Посилання на живу сторінку лабораторної роботи №4: 
+        <a href="https://risewing.github.io/lab2/">https://risewing.github.io/lab2/</a>
+    </li>
+    <li>Посилання на репозиторій звітного HTML документу: 
+        <a href="https://github.com/risewing/Domozhilkin_Zvit">https://github.com/risewing/Domozhilkin_Zvit</a>
+    </li>
+    <li>Посилання на живу сторінку звітного HTML документу: 
+        <a href="https://risewing.github.io/Domozhilkin_Zvit/">https://risewing.github.io/Domozhilkin_Zvit/</a>
+    </li>
+</ul>`
+
+;
+}
+
+function DesktopScreen() {
+    var outputDiv = document.getElementById("output");
+    outputDiv.innerHTML = `
+            <img src="./images/Desktop.png" alt="Placeholder Image" width="700">`
+        ;
+    }
+    function TabletScreen() {
+        var outputDiv = document.getElementById("output");
+        outputDiv.innerHTML = `
+                <img src="./images/Tablet.png" alt="Placeholder Image" width="700">`
+            ;
+        }
+        function MobileScreen() {
+            var outputDiv = document.getElementById("output");
+            outputDiv.innerHTML = `
+                    <img src="./images/Mobile.png" alt="Placeholder Image" width="700">`
+                ;
+            }    
+
+            function showConclusion4() {
+                var outputDiv = document.getElementById("output");
+                var conclusion = `
+                    <p><strong>Висновок:</strong>Адаптивна верстка дозволяє веб-сторінці коректно відображатися на різних пристроях: від великих моніторів (десктопів) до планшетів і мобільних телефонів. Це досягається за допомогою медіа-запитів у CSS, які дозволяють змінювати стиль сторінки в залежності від розміру екрана. </p>
+                    <p> <b>Десктопна версія </b></p>
+                <ul>
+              <li> Мета: Зробити дизайн максимально широким і зручним для великих екранів (від 1200 пікселів і більше).</li>
+                <li> Ширина елементів: Сітка для розміщення контенту має більше колонок (наприклад, 4-6 колонок), що дозволяє використовувати більше екранного простору. У нашому прикладі .grid-item займає 14% від ширини контейнера.
+Розмір шрифту: Шрифти та інші елементи мають стандартний розмір, щоб бути легко читабельними на великому екрані.
+Максимальне використання простору: Більший екран дозволяє показувати більше елементів, тому для великих екранів ми зберігаємо оригінальну верстку без суттєвих змін.</li>
+
+                    <p><b> Планшетна версія</b></p>
+
+              <li>Мета: Забезпечити зручність перегляду на екранах середнього розміру (768px - 1199px).</li>
+              <li>Зміна ширини елементів: Контент починає займати більше місця в ширину. Наприклад, ширина елементів .grid-item збільшується до 22%, щоб відповідати обмеженій ширині екрана планшета.
+Менший розмір шрифтів і відступів: Щоб забезпечити зручність перегляду, зменшуються розміри шрифтів і відступів для навігації та тексту.
+Сітка стає компактнішою: На планшетах може бути зменшена кількість колонок (з 6 до 3-4), щоб адаптувати контент до розмірів екрана.</li>
+
+<p><b> Мобільна версія</b></p>
+<li>Мета: Забезпечити читабельність та зручність перегляду на невеликих екранах мобільних телефонів (до 767 пікселів).</li>
+              <li>Вертикальне розташування елементів: Всі елементи .grid-item тепер відображаються один під одним, щоб зберегти простий інтерфейс для маленьких екранів.
+Менший розмір шрифтів і зображень: Шрифти, зображення і інші елементи інтерфейсу зменшуються для зручнішого перегляду на малому екрані.
+Навігація в стовпчик: У мобільній версії навігаційні посилання відображаються вертикально, щоб було зручно натискати пальцем.
+Зміна сітки: На мобільних пристроях сітка з елементами зображень (фільмів, серіалів) переходить на одну колонку, щоб користувач міг легко прокручувати контент.</li>
+
+<p><b> Логічні оператори</b></p>
+
+              <li>У CSS можна використовувати логічні оператори для медіа-запитів, такі як and, or, not, щоб задавати більш складні умови для відображення стилів. Наприклад, можна одночасно перевіряти мінімальну і максимальну ширину екрана</li>
+              
+              </ul>
+
+
+
+                    `
+                ;
+                outputDiv.innerHTML = conclusion;
+            }
+
+            function showDetails5() {
+    var outputDiv = document.getElementById("output");
+    outputDiv.innerHTML = `
+<p><strong>Тема:</strong> ФУНКЦІОНАЛЬНЕ ЗАСТОСУВАННЯ JAVASCRIPT У HTML-ДОКУМЕНТІ. 
+ВИКОРИСТАННЯ МАСИВІВ У JS-СЦЕНАРІЯХ. РЕАЛІЗАЦІЯ ПРОГРАМ ЗАСОВАМИ МОВИ JAVASCRIPT</p>
+<p><strong>Мета:</strong> ⎯  придбати практичні навички роботи з конструкціями мови JS, масивами та фугкціями у js-сценаріях.  Реалізація програм засовами мови JAVASCRIPT</p>
+<p><strong>Місце розташування:</strong></p>
+<ul>
+    <li>Посилання на репозиторій власного WEB-застосунку: 
+        <a href="https://github.com/risewing/lab2">https://github.com/risewing/lab2</a>
+    </li>
+    <li>Посилання на живу сторінку власного WEB-застосунку: 
+        <a href="https://risewing.github.io/lab2/">https://risewing.github.io/lab2/</a>
+    </li>
+    <li>Посилання на репозиторій звітного HTML документу: 
+        <a href="https://github.com/risewing/Domozhilkin_Zvit">https://github.com/risewing/Domozhilkin_Zvit</a>
+    </li>
+    <li>Посилання на живу сторінку звітного HTML документу: 
+        <a href="https://risewing.github.io/Domozhilkin_Zvit/">https://risewing.github.io/Domozhilkin_Zvit/</a>
+    </li>
+</ul>`
+;}
+
+function Task1() {
+    var outputDiv = document.getElementById("output");
+    outputDiv.innerHTML = `
+            <img src="./images/task1.png" alt="Placeholder Image" width="700">
+            <img src="./images/photo1.png" alt="Placeholder Image" width="700">`
+
+        ;
+    }
+function Task2() {
+    var outputDiv = document.getElementById("output");
+    outputDiv.innerHTML = `
+            <img src="./images/task2.png" alt="Placeholder Image" width="700">
+            <img src="./images/photo2.png" alt="Placeholder Image" width="700">`
+            
+        ;
+    }
+    function Task3() {
+        var outputDiv = document.getElementById("output");
+        outputDiv.innerHTML = `
+                <img src="./images/task3.png" alt="Placeholder Image" width="700">
+                <img src="./images/photo3.png" alt="Placeholder Image" width="700">`
+                
+            ;
+        }
+        function Task4() {
+            var outputDiv = document.getElementById("output");
+            outputDiv.innerHTML = `
+                    <img src="./images/task4.1.png" alt="Placeholder Image" width="700">
+                    <img src="./images/task4.2.png" alt="Placeholder Image" width="700">
+                    <img src="./images/photo4.png" alt="Placeholder Image" width="700">`
+                ;
+            }
+            function Task5() {
+                var outputDiv = document.getElementById("output");
+                outputDiv.innerHTML = `
+                        <img src="./images/task5.png" alt="Placeholder Image" width="700">
+                    
+                        <img src="./images/photo5.png" alt="Placeholder Image" width="700">`
+                    ;
+                }
+            function showConclusion5() {
+                var outputDiv = document.getElementById("output");
+                var conclusion = `
+                    <p><strong>Висновок:</strong> Під час виконання ЛР №5 я придбав практичні навички роботи з конструкціями мови JS, масивами та функціями у js-сценаріях. Також реалізував програми засовами мови JAVASCRIPT</p>`
+                ;
+                outputDiv.innerHTML = conclusion;
+            }
+
+            function showDetails6() {
+    var outputDiv = document.getElementById("output");
+    outputDiv.innerHTML = `
+<p><strong>Тема:</strong> ОБ'ЄКТ. МЕТОДИ ОБ'ЄКТА. МАСИВ ОБ'ЄКТІВ. ДЕСТРУКТУРИЗАЦІЯ ОБ'ЄКТІВ. CALLBACK. СТРІЛОЧНІ ФУНКЦІЇ. СТРІЛОЧНІ ФУНКЦІЇ ЯК КОЛБЕКИ.</p>
+<p><strong>Мета:</strong> придбати практичні навички роботи з об'єктами. Методи об'єкта.. Callback. Стрілочні функції. Стрілочні функції як колбеки.
+.  Реалізація програм засовами мови JAVASCRIPT</p>
+<p><strong>Місце розташування:</strong></p>
+<ul>
+    <li>Посилання на репозиторій власного WEB-застосунку: 
+        <a href="https://github.com/risewing/lab2">https://github.com/risewing/lab2</a>
+    </li>
+    <li>Посилання на живу сторінку власного WEB-застосунку: 
+        <a href="https://risewing.github.io/lab2/">https://risewing.github.io/lab2/</a>
+    </li>
+    <li>Посилання на репозиторій звітного HTML документу: 
+        <a href="https://github.com/risewing/Domozhilkin_Zvit">https://github.com/risewing/Domozhilkin_Zvit</a>
+    </li>
+    <li>Посилання на живу сторінку звітного HTML документу: 
+        <a href="https://risewing.github.io/Domozhilkin_Zvit/">https://risewing.github.io/Domozhilkin_Zvit/</a>
+    </li>
+</ul>`
+;}
+
+function Taask1() {
+    var outputDiv = document.getElementById("output");
+    outputDiv.innerHTML = `
+            <img src="./images/taask1.png" alt="Placeholder Image" width="700">
+            <img src="./images/phooto1.png" alt="Placeholder Image" width="700">`
+
+        ;
+    }
+function Taask3() {
+    var outputDiv = document.getElementById("output");
+    outputDiv.innerHTML = `
+            <img src="./images/taask3.png" alt="Placeholder Image" width="700">
+            <img src="./images/taask33.png" alt="Placeholder Image" width="700">`
+            
+        ;
+    }
+    function Taask5() {
+        var outputDiv = document.getElementById("output");
+        outputDiv.innerHTML = `
+                <img src="./images/taask5.png" alt="Placeholder Image" width="700">
+                <img src="./images/taask55.png" alt="Placeholder Image" width="700">`
+                
+            ;
+        }
+        function Taask7() {
+            var outputDiv = document.getElementById("output");
+            outputDiv.innerHTML = `
+                    <img src="./images/taask7.png" alt="Placeholder Image" width="700">
+                    <img src="./images/taask7.1.png" alt="Placeholder Image" width="700">
+                    <img src="./images/task77.png" alt="Placeholder Image" width="700">`
+                ;
+            }
+            function Taask9() {
+                var outputDiv = document.getElementById("output");
+                outputDiv.innerHTML = `
+                        <img src="./images/taask9.jpg" alt="Placeholder Image" width="700">
+                    
+                        <img src="./images/taask99.jpg" alt="Placeholder Image" width="700">`
+                    ;
+                }
+                function Taask10() {
+                    var outputDiv = document.getElementById("output");
+                    outputDiv.innerHTML = `
+                            <img src="./images/taask10.jpg" alt="Placeholder Image" width="700">
+                        
+                            <img src="./images/task10.jpg" alt="Placeholder Image" width="700">`
+                        ;
+                    }
+            function showConclusion6() {
+                var outputDiv = document.getElementById("output");
+                var conclusion = `
+                    <p><strong>Висновок:</strong> Під час виконання ЛР №6 я придбав практичні навички роботи з об'єктами. Методи об'єкта.. Callback. Стрілочні функції. Стрілочні функції як колбеки.  Реалізація програм засовами мови JAVASCRIPT</p>`
+                ;
+                outputDiv.innerHTML = conclusion;
+            }
+
+            function showDetails7() {
+    var outputDiv = document.getElementById("output");
+    outputDiv.innerHTML = `
+<p><strong>Тема:</strong> КЛАСИ. ОБ'ЄКТНА МОДЕЛЬ ДОКУМЕНТА (DOM). ПОДІЇ. ОБ'ЄКТ ПОДІЇ. ДЕЛЕГУВАННЯ ПОДІЙ. </p>
+<p><strong>Мета:</strong> придбати практичні навички роботи з об'єктами. Методи об'єкта.. Callback. Стрілочні функції. Стрілочні функції як колбеки.
+.  Реалізація програм засовами мови JAVASCRIPT</p>
+<p><strong>Місце розташування:</strong></p>
+<ul>
+    <li>Посилання на репозиторій власного WEB-застосунку: 
+        <a href="https://github.com/risewing/lab2">https://github.com/risewing/lab2</a>
+    </li>
+    <li>Посилання на живу сторінку власного WEB-застосунку: 
+        <a href="https://risewing.github.io/lab2/">https://risewing.github.io/lab2/</a>
+    </li>
+    <li>Посилання на репозиторій звітного HTML документу: 
+        <a href="https://github.com/risewing/Domozhilkin_Zvit">https://github.com/risewing/Domozhilkin_Zvit</a>
+    </li>
+    <li>Посилання на живу сторінку звітного HTML документу: 
+        <a href="https://risewing.github.io/Domozhilkin_Zvit/">https://risewing.github.io/Domozhilkin_Zvit/</a>
+    </li>
+</ul>`
+;}
+
+function Task7_1() {
+    var outputDiv = document.getElementById("output");
+    outputDiv.innerHTML = `
+            <img src="./lab7.tasks/images7/task1.jpg" alt="Placeholder Image" width="700">
+            <img src="./lab7.tasks/images7/taask1.jpg" alt="Placeholder Image" width="700">`
+
+        ;
+    }
+function Task7_3() {
+    var outputDiv = document.getElementById("output");
+    outputDiv.innerHTML = `
+            <img src="./lab7.tasks/images7/task3.jpg" alt="Placeholder Image" width="700">
+            <img src="./lab7.tasks/images7/task33.jpg" alt="Placeholder Image" width="700">
+            <img src="./lab7.tasks/images7/taask3.jpg" alt="Placeholder Image" width="700">`
+        ;
+    }
+    function Task7_5() {
+        var outputDiv = document.getElementById("output");
+        outputDiv.innerHTML = `
+                <img src="./lab7.tasks/images7/task5.jpg" alt="Placeholder Image" width="700">
+                <img src="./lab7.tasks/images7/taask5.jpg" alt="Placeholder Image" width="700">`
+                
+            ;
+        }
+        function Task7_7() {
+            var outputDiv = document.getElementById("output");
+            outputDiv.innerHTML = `
+                    <img src="./lab7.tasks/images7/task7.jpg" alt="Placeholder Image" width="700">
+                    <img src="./lab7.tasks/images7/taask7.jpg" alt="Placeholder Image" width="700">
+                   `
+                ;
+            }
+        function Task7_8() {
+            var outputDiv = document.getElementById("output");
+            outputDiv.innerHTML = `
+                    <img src="./lab7.tasks/images7/task8.jpg" alt="Placeholder Image" width="700">
+                    <img src="./lab7.tasks/images7/taask8.jpg" alt="Placeholder Image" width="700">`
+                ;
+            }
+            function Task7_9() {
+                var outputDiv = document.getElementById("output");
+                outputDiv.innerHTML = `
+                        <img src="./lab7.tasks/images7/task9.jpg" alt="Placeholder Image" width="700">
+                    
+                        <img src="./lab7.tasks/images7/taask9.jpg" alt="Placeholder Image" width="700">`
+                    ;
+                }
+                function Task7_10() {
+                    var outputDiv = document.getElementById("output");
+                    outputDiv.innerHTML = `
+                            <img src="./lab7.tasks/images7/task10.jpg" alt="Placeholder Image" width="700">
+                        
+                            <img src="./lab7.tasks/images7/taask10.jpg" alt="Placeholder Image" width="700">`
+                        ;
+                    }
+            function showConclusion7() {
+                var outputDiv = document.getElementById("output");
+                var conclusion = `
+                <p><strong>Висновок:</strong> Під час виконання ЛР №7 я придбав практичні навички роботи з об'єктами. Методи об'єкта.. Callback. Стрілочні функції. Стрілочні функції як колбеки.
+.  Реалізація програм засобами мови JAVASCRIPT
+</p>`
+                ;
+                outputDiv.innerHTML = conclusion;
+            }
+</script>
+</body>
+</html>
