@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таблична верстка</title>
+    <style>
+        .container {
+            width: 100%;
+            max-width: 210px;
+            margin: 0 auto;
+        }
+        table {
+            width: 100%; /* Гумова ширина таблиці */
+            height: auto; /* Висота таблиці автоматична */
+            table-layout: auto; /* Автоматичне підлаштування під вміст */
+            border-collapse: separate;  /* Дозволяє використовувати відступи між клітинками */
+            border-spacing: 5px; /* Встановлює відступи між клітинками */
+            border: 1px solid #000;
+        }
+        td {
+            border: 2px solid black;
+            text-align: center;
+            vertical-align: middle;
+            font-weight: bold;
+            color: black;
+        }
+        .header {
+            background-color: yellow;
+            height: auto;
+            position: relative;
+            width: auto;
+        }
+        .blue {
+            background-color: blue;
+            color: white;
+        }
+        .red {
+            background-color: red;
+            color: white;
+        }
+        .white {
+            background-color: white;
+        }
+        .bottom {
+            background-color: yellow;
+            height: auto;
+            
+        }
+        .input-box {
+            background-color: white;
+            border: 2px solid black;
+            width: 80px;
+            height: 20px;
+            display: inline-block;
+            position: absolute;
+    top: 10px;
+    left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <tr>
+        <td colspan="4" class="header"> 
+            <div class="input-box"></div>
+            1
+        </td>
+        
+    </tr>
+    <tr>
+        <td class="blue">2</td> 
+        <td class="red">3</td>
+        <td class="white">4</td>
+        <td class="red">5</td> 
+    </tr>
+    <tr>
+        <td colspan="4" class="bottom">6</td> 
+    </tr>
+</table>
+
+</body>
+</html>

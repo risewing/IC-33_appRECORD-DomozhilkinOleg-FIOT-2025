@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таблична верстка</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        table {
+            width: 400px; /* Задаємо ширину таблиці */
+            height: 300px; /* Задаємо висоту таблиці */
+            /*border-collapse: collapse; /* Прибираємо відступи між комірками */
+            margin: 20px auto; /* Центруємо таблицю на сторінці */
+            border: 2px solid black; /* Задаємо обведення таблиці */
+            
+        }
+        td {
+            border: 2px solid black; /* Обведення для комірок */
+            text-align: center; /* Вирівнюємо текст по центру */
+            vertical-align: middle; /* Вирівнюємо текст по вертикалі */
+            font-weight: bold; /* Жирний шрифт */
+        }
+        .header {
+            background-color: yellow; /* Жовтий фон для заголовка */
+            height: 50px; /* Висота заголовка */
+        }
+        .blue {
+            background-color: blue; /* Синій фон для 2-ї комірки */
+            color: white; /* Білий текст */
+        }
+        .red {
+            background-color: red; /* Червоний фон для 3-ї та 5-ї комірки */
+            color: white; /* Білий текст */
+        }
+        .white {
+            background-color: white; /* Білий фон для 4-ї комірки */
+        }
+        .bottom {
+            background-color: yellow; /* Жовтий фон для 6-ї комірки */
+            height: 40px; /* Висота для 6-ї комірки */
+        }
+        .input-box {
+            background-color: white; /* Білий фон для поля вводу */
+            border: 2px solid black; /* Обведення поля вводу */
+            width: 80px; /* Ширина поля вводу */
+            height: 20px; /* Висота поля вводу */
+            position: relative; /* Абсолютне позиціонування */
+            top: 10px; /* Відстань від верхнього краю */
+            left: 10px; /* Відстань від лівого краю */
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <tr>
+        <td colspan="4" class="header"> 
+            <div class="input-box"></div> <!-- Поле вводу -->
+            1
+        </td>
+    </tr>
+    <tr>
+        <td class="blue">2</td> 
+        <td class="red">3</td>
+        <td class="white">4</td>
+        <td class="red">5</td> 
+    </tr>
+    <tr>
+        <td colspan="4" class="bottom">6</td> 
+    </tr>
+</table>
+
+</body>
+</html>
