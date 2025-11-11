@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Check</title>
+    <script>
+        // Функція checkForSpam
+        function checkForSpam(message) {
+            // Приводимо message до нижнього регістру і перевіряємо на заборонені слова
+            const lowerMessage = message.toLowerCase();
+            return lowerMessage.includes("spam") || lowerMessage.includes("sale");
+        }
+
+        // Обробка натискання кнопки
+        function handleCheck() {
+            const message = document.getElementById("message").value;
+            const result = checkForSpam(message);
+            document.getElementById("result").innerText = result 
+                ? "The message contains prohibited words!" 
+                : "The message is clean!";
+        }
+    </script>
+</head>
+<body>
+    <h1>Spam Check Station</h1>
+    <p>Enter a message to check if it contains prohibited words.</p>
+    
+    <label for="message">Message:</label>
+    <input type="text" id="message" required>
+
+    <button onclick="handleCheck()">Check for Spam</button>
+    
+    <p id="result"></p>
+</body>
+</html>

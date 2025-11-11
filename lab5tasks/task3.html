@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Перевірка логіну та паролю</title>
+</head>
+<body>
+
+<h1>Перевірка доступу</h1>
+
+<script>
+  // 1️⃣ Ініціалізація логінів та паролів
+  const adminLogin = "Admin";
+  const adminPassword = "12345";
+  const userLogin = "User";
+  const userPassword = "user123";
+
+  // 2️⃣ Запитуємо логін у користувача
+  const login = prompt("Введіть логін:");
+
+  // 3️⃣ Виводимо логін у консоль за допомогою шаблонного рядка
+  console.log(`Ви ввели логін: ${login}`);
+
+  // 4️⃣ Перевіряємо логін
+  if (login === null || login.trim() === "") {
+    alert("Cancelled");
+  } else if (login === adminLogin) {
+    const password = prompt("Введіть пароль для Admin:");
+    if (password === adminPassword) {
+      alert("Hello, Admin");
+    } else if (password === null || password.trim() === "") {
+      alert("Cancelled");
+    } else {
+      alert("Невірний пароль!");
+    }
+  } else if (login === userLogin) {
+    const password = prompt("Введіть пароль для User:");
+    if (password === userPassword) {
+      alert("Hello, User");
+    } else if (password === null || password.trim() === "") {
+      alert("Cancelled");
+    } else {
+      alert("Невірний пароль!");
+    }
+  } else {
+    alert("I don't know you");
+  }
+</script>
+
+</body>
+</html>

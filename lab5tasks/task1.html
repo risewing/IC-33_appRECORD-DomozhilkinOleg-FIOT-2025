@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перевірка числа</title>
+</head>
+<body>
+
+<h1>Перевірка введеного числа</h1>
+
+<script>
+    // Запитуємо значення у користувача
+    const value = prompt("Введіть будь-яке число:");
+
+    // Виводимо у консоль з шаблонним рядком
+    console.log(`Введене значення: ${value}`);
+
+    // Перетворюємо рядок у число
+    const number = Number(value);
+
+    // Перевіряємо, чи це дійсне число
+    if (isNaN(number)) {
+        alert("Введено не число!");
+    } else {
+        if (number > 0) {
+            alert("Число додатнє");
+        } else if (number < 0) {
+            alert("Число від’ємне");
+        } else {
+            alert("Число дорівнює нулю");
+        }
+    }
+</script>
+
+</body>
+</html>

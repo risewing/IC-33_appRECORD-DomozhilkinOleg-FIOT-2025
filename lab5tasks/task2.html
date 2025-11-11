@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Визначення пори року</title>
+</head>
+<body>
+
+<h1>Визначення пори року</h1>
+
+<script>
+    // Запитуємо число у користувача
+    const number = prompt("Введіть число від 1 до 4:");
+
+    let result;
+
+    // Визначаємо пору року через switch-case
+    switch (number) {
+        case '1':
+            result = "Зима";
+            break;
+        case '2':
+            result = "Весна";
+            break;
+        case '3':
+            result = "Літо";
+            break;
+        case '4':
+            result = "Осінь";
+            break;
+        default:
+            result = "Невірне значення! Введіть число від 1 до 4.";
+    }
+
+    // Виводимо результат у консоль
+    console.log(`Результат: ${result}`);
+</script>
+
+</body>
+</html>

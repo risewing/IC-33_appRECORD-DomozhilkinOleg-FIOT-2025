@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Filter and Sort Medicines</title>
+ <script>
+ const medicines = {
+ Агалгін: new Date("2022-05-01"),
+ Ношпа: new Date("2025-07-02"),
+ Альфахолін: new Date("2024-12-21"),
+ Аспірин: new Date("2022-08-15"),
+ Аспаркам: new Date("2024-04-18"),
+ };
+
+ // Функція для обробки медикаментів
+ const processMedicines = () => {
+ const today = new Date();
+
+ // Отримуємо масив назв медикаментів, у яких строк зберігання не пройшов
+ const validMedicines = Object.entries(medicines)
+.filter(([name, expiryDate]) => expiryDate > today) // Фільтруємо за датою
+ .sort(([, dateA], [, dateB]) => dateA - dateB) // Сортуємо за датою
+ .map(([name]) => name); // Отримуємо масив назв
+
+ // Виводимо результат у консоль
+ console.log("Valid Medicines in Chronological Order:", validMedicines);
+ };
+ </script>
+</head>
+<body>
+ <h1>Filter and Sort Medicines</h1>
+ <p>Open the console to see the filtered and sorted list of medicines.</p>
+ <button onclick="processMedicines()">Process Medicines</button>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Processing</title>
+    <script>
+        // Функція для створення масиву заданого розміру з випадковими значеннями
+        function createArray(size) {
+            const array = [];
+            for (let i = 0; i < size; i++) {
+                array.push(Math.floor(Math.random() * 100)); // Заповнюємо випадковими числами від 0 до 99
+            }
+            return array;
+        }
+
+        // Функція для визначення максимального та мінімального значення серед елементів з парними та непарними індексами
+        function findMinMax(array) {
+            let maxEven = -Infinity;
+            let minEven = Infinity;
+            let maxOdd = -Infinity;
+            let minOdd = Infinity;
+
+            for (let i = 0; i < array.length; i++) {
+                if (i % 2 === 0) { // Парні індекси
+                    maxEven = Math.max(maxEven, array[i]);
+                    minEven = Math.min(minEven, array[i]);
+                } else { // Непарні індекси
+                    maxOdd = Math.max(maxOdd, array[i]);
+                    minOdd = Math.min(minOdd, array[i]);
+                }
+            }
+
+            return {
+                maxEven,
+                minEven,
+                maxOdd,
+                minOdd
+            };
+        }
+
+        // Функція для сортування масиву методом вибору у порядку зменшення
+        function selectionSortDescending(array) {
+            for (let i = 0; i < array.length - 1; i++) {
+                let maxIndex = i;
+                for (let j = i + 1; j < array.length; j++) {
+                    if (array[j] > array[maxIndex]) {
+                        maxIndex = j;
+                    }
+                }
+                // Обмін елементів
+                [array[i], array[maxIndex]] = [array[maxIndex], array[i]];
+            }
+            return array;
+        }
+
+        // Обробка натискання кнопки
+        function handleProcess() {
+            const size = parseInt(document.getElementById("size").value);
+
+            if (isNaN(size) || size <= 0) {
+                document.getElementById("result").innerText = "Please enter a valid array size.";
+                return;
+            }
+
+            const array = createArray(size);
+            const minMaxValues = findMinMax(array);
+            const sortedArray = [...array];
+            selectionSortDescending(sortedArray);
+
+            document.getElementById("result").innerHTML = `
+                <p><strong>Original Array:</strong> ${array.join(', ')}</p>
+                <p><strong>Sorted Array (Descending):</strong> ${sortedArray.join(', ')}</p>
+                <p><strong>Max Even Index Value:</strong> ${minMaxValues.maxEven}</p>
+                <p><strong>Min Even Index Value:</strong> ${minMaxValues.minEven}</p>
+                <p><strong>Max Odd Index Value:</strong> ${minMaxValues.maxOdd}</p>
+                <p><strong>Min Odd Index Value:</strong> ${minMaxValues.minOdd}</p>
+            `;
+        }
+    </script>
+</head>
+<body>
+    <h1>Array Processing</h1>
+    <p>Enter the size of the array to generate, and process it to find min/max values and sort in descending order.</p>
+    
+    <label for="size">Array Size:</label>
+    <input type="number" id="size" min="1" required>
+
+    <button onclick="handleProcess()">Process Array</button>
+    
+    <div id="result"></div>
+</body>
+</html>

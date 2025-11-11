@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Array</title>
+    <script>
+        // Функція filterArray
+        function filterArray(numbers, value) {
+            const filteredNumbers = []; // Порожній масив для чисел, більших за value
+            for (let number of numbers) {
+                if (number > value) {
+                    filteredNumbers.push(number); // Додаємо число до масиву, якщо воно більше value
+                }
+            }
+            return filteredNumbers;
+        }
+
+        // Обробка натискання кнопки
+        function handleFilter() {
+            const numbersInput = document.getElementById("numbers").value;
+            const value = parseFloat(document.getElementById("value").value);
+
+            // Розбиваємо введені числа в масив
+            const numbers = numbersInput.split(',').map(Number);
+            
+            // Викликаємо функцію filterArray
+            const result = filterArray(numbers, value);
+            document.getElementById("result").innerText = `Filtered numbers: ${result.join(', ')}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Filter Array</h1>
+    <p>Enter a list of numbers and a filter value. The page will return numbers greater than the specified value.</p>
+    
+    <label for="numbers">Numbers (comma-separated):</label>
+    <input type="text" id="numbers" placeholder="e.g., 1, 5, 10, 15, 20" required>
+
+    <label for="value">Filter Value:</label>
+    <input type="number" id="value" step="0.01" required>
+
+    <button onclick="handleFilter()">Filter Array</button>
+    
+    <p id="result"></p>
+</body>
+</html>

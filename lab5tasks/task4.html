@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repair Droid Station</title>
+    <script>
+        // Функція makeTransaction
+        function makeTransaction(quantity, pricePerDroid) {
+            const totalPrice = quantity * pricePerDroid;
+            return `You ordered ${quantity} droids worth ${totalPrice} credits!`;
+        }
+
+        // Обробка натискання кнопки
+        function handleOrder() {
+            const quantity = parseInt(document.getElementById("quantity").value);
+            const pricePerDroid = parseFloat(document.getElementById("pricePerDroid").value);
+            const result = makeTransaction(quantity, pricePerDroid);
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+</head>
+<body>
+    <h1>Repair Droid Station</h1>
+    <p>Order repair droids for your needs!</p>
+    
+    <label for="quantity">Quantity of Droids:</label>
+    <input type="number" id="quantity" min="1" required>
+
+    <label for="pricePerDroid">Price per Droid:</label>
+    <input type="number" id="pricePerDroid" step="0.01" min="0.01" required>
+
+    <button onclick="handleOrder()">Order Droids</button>
+    
+    <p id="result"></p>
+</body>
+</html>

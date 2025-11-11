@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Discount</title>
+    <script>
+        const fruits = [
+            { name: "apple", price: 200 },
+            { name: "orange", price: 300 },
+            { name: "grapes", price: 750 },
+        ];
+
+        // Функція для застосування знижки та додавання унікального id
+        const applyDiscountAndAddId = (products) => {
+            return products.map((product, index) => ({
+                ...product,
+                price: product.price * 0.8, // Застосовуємо знижку 20%
+                id: Date.now() + index // Генеруємо унікальний id на основі часу та індексу
+            }));
+        };
+
+        // Функція для обробки масиву фруктів
+        const processFruits = () => {
+            const discountedFruits = applyDiscountAndAddId(fruits);
+            console.log("Discounted Fruits with IDs:", discountedFruits);
+        };
+    </script>
+</head>
+<body>
+    <h1>Fruit Discount Application</h1>
+    <p>Click the button to see the fruits with applied discounts and unique IDs in the console.</p>
+    <button onclick="processFruits()">Process Fruits</button>
+</body>
+</html>

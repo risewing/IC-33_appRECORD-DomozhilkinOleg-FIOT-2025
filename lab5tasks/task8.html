@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Робота з двовимірним масивом</title>
+</head>
+<body>
+
+<h1>Двовимірний масив: розділення на додатні та від’ємні</h1>
+
+<script>
+  // 1️⃣ Створюємо двовимірний масив (3x4) з випадкових чисел від -10 до 10
+  const rows = 3;
+  const cols = 4;
+  const matrix = [];
+
+  for (let i = 0; i < rows; i++) {
+    const row = [];
+    for (let j = 0; j < cols; j++) {
+      const num = Math.floor(Math.random() * 21) - 10; // діапазон [-10, 10]
+      row.push(num);
+    }
+    matrix.push(row);
+  }
+
+  console.log("Початковий двовимірний масив:");
+  console.table(matrix);
+
+  // 2️⃣ Створюємо масиви додатніх та від’ємних чисел
+  const positives = [];
+  const negatives = [];
+
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (matrix[i][j] >= 0) {
+        positives.push(matrix[i][j]);
+      } else {
+        negatives.push(matrix[i][j]);
+      }
+    }
+  }
+
+  console.log("Масив додатніх чисел:", positives);
+  console.log("Масив від’ємних чисел:", negatives);
+
+  // 3️⃣ Замінюємо третій елемент у масиві додатніх чисел
+  if (positives.length >= 3) {
+    const newNegative = Number(prompt("Введіть від’ємне число для заміни третього елемента:"));
+    if (isNaN(newNegative) || newNegative >= 0) {
+      alert("Потрібно ввести від’ємне число!");
+    } else {
+      positives[2] = newNegative;
+      console.log("Оновлений масив додатніх чисел:", positives);
+    }
+  } else {
+    console.log("Недостатньо елементів у масиві додатніх чисел для заміни третього.");
+  }
+
+</script>
+
+</body>
+</html>

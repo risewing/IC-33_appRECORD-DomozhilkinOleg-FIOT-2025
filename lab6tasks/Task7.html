@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Class with Private Properties</title>
+    <script>
+        class Client {
+            // Оголошення приватних властивостей
+            #login;
+            #email;
+
+            // Конструктор для ініціалізації об'єкта
+            constructor(login, email) {
+                this.#login = login;
+                this.#email = email;
+            }
+
+            // Геттер для властивості login
+            get login() {
+                return this.#login;
+            }
+
+            // Сеттер для властивості login
+            set login(newLogin) {
+                this.#login = newLogin;
+            }
+
+            // Геттер для властивості email
+            get email() {
+                return this.#email;
+            }
+
+            // Сеттер для властивості email
+            set email(newEmail) {
+                this.#email = newEmail;
+            }
+        }
+
+        // Функція для створення клієнта і роботи з властивостями
+        function createAndDisplayClient() {
+            const loginInput = document.getElementById("login").value;
+            const emailInput = document.getElementById("email").value;
+
+            const client = new Client(loginInput, emailInput);
+
+            console.log("Initial Client Data:");
+            console.log("Login:", client.login);
+            console.log("Email:", client.email);
+
+            // Зміна даних клієнта через сеттери
+            client.login = "newLogin";
+            client.email = "newemail@example.com";
+
+            console.log("Updated Client Data:");
+            console.log("Login:", client.login);
+            console.log("Email:", client.email);
+        }
+    </script>
+</head>
+<body>
+    <h1>Create Client Object</h1>
+
+    <label for="login">Login:</label>
+    <input type="text" id="login" required>
+    <br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" required>
+    <br><br>
+
+    <button onclick="createAndDisplayClient()">Create and Display Client</button>
+    <p>Check the console to see the client data.</p>
+</body>
+</html>

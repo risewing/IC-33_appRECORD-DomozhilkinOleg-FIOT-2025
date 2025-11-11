@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slideshow</title>
+    <style>
+        #slideshow-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        #image {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+        }
+    </style>
+    <script>
+        let images = [
+            "https://static-cdn.jtvnw.net/jtv_user_pictures/309d144d-173a-49cb-a206-4ed8eaf586b0-profile_image-70x70.png",
+            "https://icdn.lenta.ru/images/2022/01/13/15/20220113155912401/square_1280_81c45388af1c3c813e9bec9ddc3a05ef.jpg",
+            "https://static.wikia.nocookie.net/talkingtomfriends/images/6/69/Tom.png/revision/latest/scale-to-width/360?cb=20220407144211&path-prefix=ru",
+            "https://static.wikia.nocookie.net/subwaysurf/images/c/c8/Jake1.png/revision/latest?cb=20191025070938&path-prefix=ru"
+        ];
+
+        let currentIndex = 0;
+        let intervalId = null;
+
+        function updateImageSize() {
+            const imageElement = document.getElementById("image");
+            const width = document.getElementById("width").value;
+            const height = document.getElementById("height").value;
+            imageElement.style.width = width ? `${width}px` : "auto";
+            imageElement.style.height = height ? `${height}px` : "auto";
+        }
+
+        function showNextImage() {
+            const imageElement = document.getElementById("image");
+            currentIndex = (currentIndex + 1) % images.length; // Циклічний перехід
+            imageElement.src = images[currentIndex];
+        }
+
+        function startSlideshow() {
+            const interval = parseInt(document.getElementById("interval").value) * 1000;
+            if (intervalId) clearInterval(intervalId);
+            intervalId = setInterval(showNextImage, interval);
+        }
+
+        function stopSlideshow() {
+            clearInterval(intervalId);
+            intervalId = null;
+        }
+
+        window.onload = function() {
+            document.getElementById("image").src = images[currentIndex];
+        };
+    </script>
+</head>
+<body>
+    <div id="slideshow-container">
+        <h1>Image Slideshow</h1>
+        
+        <img id="image" src="" alt="Slideshow Image">
+        
+        <label for="width">Width (px):</label>
+        <input type="number" id="width" onchange="updateImageSize()">
+        
+        <label for="height">Height (px):</label>
+        <input type="number" id="height" onchange="updateImageSize()">
+        
+        <label for="interval">Time between slides (seconds):</label>
+        <input type="number" id="interval" min="1" value="3">
+        
+        <button onclick="startSlideshow()">Start Slideshow</button>
+        <button onclick="stopSlideshow()">Stop Slideshow</button>
+    </div>
+</body>
+</html>
