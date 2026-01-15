@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 3</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="task-container">
+        <h1>ЗАВДАННЯ 3</h1>
+        <input type="password" id="textInput" placeholder="Введіть текст">
+        <button id="toggleButton">Приховати</button>
+    </div>
+
+    <script>
+        // Отримуємо посилання на елементи
+        const toggleButton = document.getElementById('toggleButton');
+        const textInput = document.getElementById('textInput');
+
+        // Додаємо обробник події на кнопку
+        toggleButton.addEventListener('click', function() {
+            if (textInput.type === 'password') {
+                // Змінюємо тип поля на текст
+                textInput.type = 'text';
+                toggleButton.textContent = 'Приховати';
+            } else {
+                // Змінюємо тип поля на пароль
+                textInput.type = 'password';
+                toggleButton.textContent = 'Розкрити';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 5</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1 class="taskTitle">ЗАВДАННЯ 5</h1>
+    <div id="place"></div>
+
+    <script>
+        // Отримуємо посилання на div з id="place"
+        const placeDiv = document.getElementById('place');
+
+        // Додаємо слухач кліку на window
+        window.addEventListener('click', function(event) {
+            // Перевіряємо, чи був клік у div з id="place"
+            const isClickedInsidePlace = event.target === placeDiv;
+            console.log(isClickedInsidePlace);
+        });
+    </script>
+</body>
+</html>

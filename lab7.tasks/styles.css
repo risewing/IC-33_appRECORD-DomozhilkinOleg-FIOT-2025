@@ -1,0 +1,44 @@
+body {
+    background-color: #ffffff; /* світло-зелений фон */
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 50px;
+}
+#task-container {
+    display: inline-block;
+    padding: 20px;
+    border: 2px solid #000;
+    background-color: #05cf16;
+}
+input[type="text"] {
+    margin-left: 10px;
+    padding: 5px;
+    font-size: 16px;
+}
+button {
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.taskTitle {
+    font-size: 20px;
+    font-weight: bold;
+}
+#place {
+    width: 100px;
+    height: 200px;
+    background-color: green;
+    margin: 20px auto;
+}
+.container {
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid #000;
+    background-color: rgb(0, 255, 128);
+}
+.box {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    background-color: random;
+}
